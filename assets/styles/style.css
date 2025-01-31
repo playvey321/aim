@@ -1,0 +1,120 @@
+:root{
+    --main-color:#58b1d7;
+  }  
+  
+  *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body{
+        background: rgb(107,202,255);
+       height: 1000px;
+        background: linear-gradient(0deg, rgba(107,202,255,1) 0%, rgba(255,255,255,1) 90%);
+  position: relative;
+
+    }
+    .container{
+      max-width: 1530px;
+      margin: 0 auto;
+     position: relative;
+    }
+    .nav__panel{
+        margin-top: 20px;
+        display: flex;
+     align-items: center;
+    justify-content: space-around;
+    }
+    .title__aim{
+        font-size: 35px;
+    }
+    .text__score{
+        font-size: 25px;
+    }
+    .time__counter{
+        font-size: 25px;
+
+    }
+
+    /*aim zone*/
+    .circle3{
+        background-image: url(../img/blue__baloon.png);
+        width: 70px;
+        height: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+        
+      
+    }
+     .circle3.active{
+        display: none;
+            }
+    .circle2{
+        cursor: pointer;
+        background-image: url(../img/red__baloon.png);
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      
+        
+      
+    }
+     .circle2.active{
+        display: none;
+            }
+    .circle1{
+        cursor: pointer;
+        background-image: url(../img/yellow__baloon.png);
+        width: 70px;
+        height: 90px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+       
+    }
+    .circle1.active{
+display: none;
+    }
+   
+
+    .window__stop{
+        margin: 0 auto;
+        
+        margin-top: 10%;
+        border-radius: 20px;
+        width: 500px;
+        height: 300px;
+        background-color:rgb(130, 197, 255);
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        display: none;
+    }
+    .window__stop.active{
+        display: flex;
+    }
+    .window__stop-title{
+text-align: center;
+font-size: 25px;
+    }
+    .window__stop-text{
+        text-align: center;
+        padding-top: 50px;
+    }
+    .return__btn{
+        width: 150px;
+        height: 50px;   
+        background-color:  rgb(109, 187, 255);
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        border: 1px solid black;
+    }
