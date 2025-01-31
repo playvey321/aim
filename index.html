@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <title>AimTrainer</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="nav__panel">
+                <div class="text__score"><span>Твой счет: <span class="score"></span></span></div>
+                <div class="title__aim">
+                    <h1>Аим тренер</h1>
+                </div>
+                <div class="time__counter"><span>Время до конца: <span class="timer"></span></span></div>
+
+            </div>
+
+        </div>
+    </header>
+    <main>
+        <section class="aim">
+            <div class="container">
+                <div class="circle1 circle"></div>
+                <div class="circle2 circle"></div>
+                <div class="circle3 circle"></div>
+                <div class="window__stop">
+                    <div class="window__stop-title">
+                        <h2>Игра окончена</h2>
+                    </div>
+                    <div class="window__stop-text text__score"><span>Твой счет: <span
+                                class="window__score"></span></span></div>
+                    <button class="return__btn" onclick="location.reload(); return false;"><span>Занаво</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+</body>
+<script>
+    const timer__text = document.querySelector('.timer')
+    const return__btn = document.querySelector('.return__btn')
+    const window__stop = document.querySelector('.window__stop')
+    const circle1 = document.querySelector('.circle1')
+    const circle2 = document.querySelector('.circle2')
+    const circle3 = document.querySelector('.circle3')
+    const score = document.querySelector('.score')
+    const window__score = document.querySelector('.window__score')
+
+
+    let min = 0;
+    let max = 900;
+    function random(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    console.log(random(min, max))
+
+
+    let counter = 0;
+    circle1.addEventListener('click', (event) => {
+        counter++;
+        score.innerHTML = counter
+        circle1.style.marginLeft = random(min, max) + "px"
+        circle1.style.marginTop = random(min, 400) + "px"
+    })
+    circle2.addEventListener('click', (event) => {
+        counter++;
+        score.innerHTML = counter
+        circle2.style.marginLeft = random(min, max) + "px"
+        circle2.style.marginTop = random(min, 400) + "px"
+    })
+    circle3.addEventListener('click', (event) => {
+        counter++;
+        score.innerHTML = counter
+        circle3.style.marginLeft = random(min, max) + "px"
+        circle3.style.marginTop = random(min, 400) + "px"
+    })
+
+    let time = 25;
+    const timer = setInterval(() => {
+        timer__text.innerHTML = timer__text + time <= 0
+            ? clearInterval(time)
+            : time--;
+        if (time == -1) {
+            window__stop.classList.add('active')
+            timer__text.innerHTML = 0;
+            timer__text.style.display = "none"
+            circle1.style.display = "none"
+            circle2.style.display = "none"
+            circle3.style.display = "none"
+
+
+            window__score.innerHTML = counter;
+        }
+
+
+
+    }, 1000);
+
+    const audio = new Audio('ak47.mp3');
+    circle1.addEventListener("click", () => {
+        audio.play();
+    });
+    circle2.addEventListener("click", () => {
+        audio.play();
+
+    });
+    circle3.addEventListener("click", () => {
+        audio.play();
+
+    });
+
+</script>
+
+</html>
